@@ -1,5 +1,4 @@
-all: rotateArr
+all: rotateArray
 
-rotateArr:
-    gcc rotateArr.c -o rotateArr
-
+rotateArray: rotateArray.c
+	gcc rotateArray.c -o rotateArray

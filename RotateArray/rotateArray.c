@@ -1,7 +1,7 @@
 #include <stdio.h>
-void printArr(int *a, int size)
+void printArr(int *a, int size, char *prefix)
 {
-    printf("Array = [ ");
+    printf("%s -- Array = [ ", prefix);
     for (int i=0; i<size; i++)
         printf("%d ", a[i]);
     printf("]\n");
@@ -13,18 +13,18 @@ void main()
     int a[size];
     for (int i=1; i<=size; i++)
         a[i] = i;
-    
-    printArr(a, size);
+
+    printArr(a, size, "Before");
     int swap;
     for (int i=0; i<k; i++)
     {
         swap = a[i];
-        for (int j=k; j<size; j=j+k)
+        for (int j=i+k; j<size+k; j=j+k)
         {
-            int temp = a[(j+k)%size];
-            a[(j+k)%size] = swap;
+            int temp = a[(j)%size];
+            a[(j)%size] = swap;
             swap = temp;
         }
     }
-    printArr(a, size);
+    printArr(a, size, "After");
 }
